@@ -21,7 +21,7 @@ def extra_space_remover(stringa):
         temp = temp[1:]
     if stringa[-1] == " ":
         temp = temp[:-1]
-    return temp
+    return temp.lower()
 def descrizione_comando(comando):
     comand=False
     temp=""
