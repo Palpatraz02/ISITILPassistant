@@ -32,11 +32,11 @@ def descrizione_comando(comando):
         if comand== True:
             temp+=x
     return temp
-def comandi(extra_space_remover(comando)):
+def comandi(comando):
   if comando.find("indicazioni")!=-1:
       if descrizione_comando(comando).find("professori"):
         print(f"Ha chiesto informazzioni su {descrizione_comando(comando)}")
       else:
           print(f"Mi dispiace ma non so niente su {descrizione_comando(comando)}!!!")
-comandi(input("-> "))
+comandi(extra_space_remover(input("-> ")))
   
