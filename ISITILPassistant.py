@@ -30,11 +30,23 @@ def descrizione_comando(comando, parola_chiave, parola_comando):
 
 
 def comandi(domanda, parola_chiave="", parola_comando=""):
-    if domanda.find("informazioni") != -1 or domanda.find("informazione") != -1:
+        if domanda.find("informazioni") != -1 or domanda.find("informazione") != -1:
         parola_chiave = "su"
         parola_comando = "informazioni"
         if descrizione_comando(domanda, parola_chiave, parola_comando).find("professori") != -1:
-            print(f"Hai chiesto informazzioni su {descrizione_comando(domanda,parola_chiave,parola_comando)}")
+            inp = input("""Cosa vuoi sapere a rigurado?
+            puoi sciengliere tra:
+                I miei professori?
+                Chi è il miglire?
+                Chi è il peggiore?
+                Quanti professori ci sono in questa scuola?
+                    -> """)
+            if inp.find("miei professori")!=-1 or inp.find("insegna"):
+                inp = input("Mi serve sapre un ultima cosa.\nChe classe frequenti?\n ->")
+                if inp.find("3 inf")!=-1:
+                    print("Informazione attualmente non disponibile")
+                else:
+                    print("Mi dispiace ma non so niente su questa classe")
         else:
             print(f"Mi dispiace ma non so niente su {descrizione_comando(domanda,parola_chiave,parola_comando)}!!!")
             
