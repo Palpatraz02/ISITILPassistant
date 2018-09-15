@@ -24,12 +24,12 @@ def extra_space_remover(stringa):
 def descrizione_comando(comando):
     comand=False
     temp=""
-    for x in comando:
-        if x==' ':
+    for x in range(comando.find("su"),len(comando)):
+        if comando[x]==' ':
             comand = True
             continue
         if comand== True:
-            temp+=x
+            temp+=comando[x]
     return temp
 def comandi(comando):
   if comando.find("informazioni")!=-1:
@@ -38,4 +38,3 @@ def comandi(comando):
       else:
         print(f"Mi dispiace ma non so niente su {descrizione_comando(comando)}!!!")
 comandi(extra_space_remover(input("Di cosa hai bisogno?  \n\n Indicazioni, informazioni, aiuto o altro\n-> ")))
-  
