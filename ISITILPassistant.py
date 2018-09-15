@@ -32,21 +32,22 @@ def extra_space_remover(stringa):
     if stringa[-1] == " ":
         temp = temp[:-1]
     return temp.lower()
-def descrizione_comando(comando, parola_chiave):
+def descrizione_comando(comando, parola_chiave, parola_comando):
     comand=False
     temp=""
-    for x in range(comando.find(parola_chiave),len(comando)):
+    for x in range(comando.find(parola_chiave,comando.find(parola_comando)+len(parola_comando)),len(comando)):
         if comando[x]==' ':
             comand = True
             continue
         if comand== True:
             temp+=comando[x]
     return temp
-def comandi(comando, parola_chiave=""):
-  if comando.find("informazioni")!=-1:
+def comandi(comando, parola_chiave="", parola_comando=""):
+  if comando.find("informazioni")!=-1 or comando.find("informazione")!=-1:
       parola_chiave="su"
-      if descrizione_comando(comando,parola_chiave).find("professori")!=-1:
-        print(f"Hai chiesto informazzioni su {descrizione_comando(comando,parola_chiave)}")
+      parola_comando="informazioni"
+      if descrizione_comando(comando,parola_chiave,parola_comando).find("professori")!=-1:
+        print(f"Hai chiesto informazzioni su {descrizione_comando(comando,parola_chiave,parola_comando)}")
       else:
-        print(f"Mi dispiace ma non so niente su {descrizione_comando(comando,parola_chiave)}!!!")
+        print(f"Mi dispiace ma non so niente su {descrizione_comando(comando,parola_chiave,parola_comando)}!!!")
 comandi(extra_space_remover(input("Di cosa hai bisogno?  \n\n Indicazioni, informazioni, aiuto o altro\n-> ")))
