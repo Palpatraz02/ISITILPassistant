@@ -7,7 +7,7 @@ def comandi(domanda):
     if domanda.find("non")!=-1:
         provabile_frase_negativa=True
     elif domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1:
-        azione_promaria="informazioni"
+        azione_primaria="informazioni"
     elif domanda.find("professori")!=-1 or domanda.find("professore")!=-1:
         parametri.append("professori")
 
