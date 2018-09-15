@@ -1,10 +1,21 @@
-#prova Samuele
-domanda = input("Di cosa hai bisogno?  /n/n Indicazioni, informazioni, aiuto o altro")
+
+
+domanda = input("Di cosa hai bisogno? /n/n Indicazioni, informazioni, aiuto o altro ")
 
 if (domanda == "indicazioni") or (domanda == "Indicazioni"):
   print("Che tipo di indicazioni hai bisogno?")
   indicazionidomanda = input("Professori, classi, materiale didattico")
-#prova Fabien
+elif (domanda == "informazioni") or (domanda ="Informazioni") or (domanda = "info") or (domanda="Info"):
+    informazionidomanda = input("Professori, Classi, materiale didattico, orari")
+
+elif(domanda == "aiuto") or (domanda == "Aiuto"):
+    aiutodomanda = input("Con l'assistente, altro")
+else:
+    print("Non ho capito di cosa hai bisogno")
+
+
+  
+
 def extra_space_remover(stringa):
     temp = ""
     space = False
