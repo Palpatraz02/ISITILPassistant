@@ -1,17 +1,22 @@
 import Funzioni
 
 def comandi(domanda):
-    provabile_frase_negativa=False
+    probabile_frase_negativa=False
+    azione_sempre_vera=""
     azione_primaria=""
     parametri=[]
     if domanda.find("non")!=-1:
-        provabile_frase_negativa=True
-    elif domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1:
+        probabile_frase_negativa=True
+    if domanda.find("ciao") != -1:
+        azione_sempre_vera="ciao"
+    if domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1:
         azione_primaria="informazioni"
-    elif domanda.find("professori")!=-1 or domanda.find("professore")!=-1:
+    if domanda.find("professori")!=-1 or domanda.find("professore")!=-1:
         parametri.append("professori")
 
-    if provabile_frase_negativa==False:
+    if probabile_frase_negativa==False:
+        if azione_sempre_vera=="ciao":
+            print("Caio!!")
         if azione_primaria=="informazioni":
             if len(parametri)!=0:
                 for x in parametri:
