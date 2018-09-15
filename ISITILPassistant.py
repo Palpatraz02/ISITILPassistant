@@ -2,7 +2,7 @@ import Funzioni
 
 def comandi(domanda):
     provabile_frase_negativa=False
-    azione_promaria=""
+    azione_primaria=""
     parametri=[]
     if domanda.find("non")!=-1:
         provabile_frase_negativa=True
@@ -12,7 +12,7 @@ def comandi(domanda):
         parametri.append("professori")
 
     if provabile_frase_negativa==False:
-        if azione_promaria=="informazioni":
+        if azione_primaria=="informazioni":
             if len(parametri)!=0:
                 for x in parametri:
                     if x == "professori":
