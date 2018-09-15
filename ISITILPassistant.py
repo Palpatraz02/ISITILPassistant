@@ -52,20 +52,22 @@ def comandi(domanda, parola_chiave="", parola_comando=""):
             
         elif (domanda == "indicazioni") or (domanda == "Indicazioni"):
             print("Che tipo di indicazioni hai bisogno?")
-            indicazionidomanda = input("Professori, classi, materiale didattico:\n -->")
+            indicazionidomanda = input("Professori, classi, materiale didattico:\n --> ")
             
             if indicazionidomanda.find("Professori") or ("prof") or ("professori")!=-1:
-                nomeprofessore = input("Inserisci il nome di un prof oppure una classe in cui insegna oppure la materia\n -->")
+                nomeprofessore = input("Inserisci il nome del prof \n --> ")
                
-                if nomeprofessore.find("Venturino") or ("venturino") !=-1:
+                if nomeprofessore.find("Venturino") or ("venturino")!=-1:
                     print("Il prof "+ nomeprofessore + " insegna nelle classi:")
                     print("- 3 inf")
                     print("- 4 inf")
-            
+                elif nomeprofessire.find("Merivot") or ("merivot")!=-1:
+                    print("Il prof " + nomeprofessore + "insegna nelle classi:")
+                    print("- 3 inf")
                 else:
                     print("Il prof cercato non è disponibile o non esiste, ritenta")
     
-            elif indicazionidomanda.find(indicazionidomanda == "Classi") or (indicazionidomanda == "classi")!=-1:
+            elif indicazionidomanda.find("Classi") or ("classi")!=-1:
                 inp2 = input("Mi serve sapre un ultima cosa.\nDi che classe hai bisogno?\n ->")
                 if inp2.find("1 inf") or ("prima info") or ("prima informatica") or ("1 informatica")!=-1:
                     print("Informazione attualmente non disponibile")
