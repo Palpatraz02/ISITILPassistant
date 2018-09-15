@@ -41,9 +41,6 @@ def comandi(domanda, parola_chiave="", parola_comando=""):
     if (domanda == "indicazioni") or (domanda == "Indicazioni"):
         print("Che tipo di indicazioni hai bisogno?")
         indicazionidomanda = input("Professori, classi, materiale didattico")
-    elif (domanda == "informazioni") or (domanda =="Informazioni") or (domanda == "info") or (domanda=="Info"):
-        informazionidomanda = input("Professori, Classi, materiale didattico, orari")
-
     elif (domanda == "aiuto") or (domanda == "Aiuto"):
         aiutodomanda = input("Con l'assistente, altro")
     else:
