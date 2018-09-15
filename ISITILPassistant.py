@@ -1,5 +1,4 @@
 #prova Samuele
-print("linea da cancellare")
 domanda = input("Di cosa hai bisogno?  /n/n Indicazioni, informazioni, aiuto o altro")
 
 if (domanda == "indicazioni") or (domanda == "Indicazioni"):
