@@ -10,23 +10,40 @@ def comandi(domanda):
     azione_sempre_vera=""
     azione_primaria=""
     parametri=[]
+    #principali
     if domanda.find("non")!=-1:
         probabile_frase_negativa=True
     if domanda.find("vero") != -1:
         probabile_frase_negativa = True
+    #semprevero
     if domanda.find("ciao") != -1:
         azione_sempre_vera="ciao"
+    #azioone primaria
     if domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1 or domanda.find("informami")!=-1:
         azione_primaria="informazioni"
-    if domanda.find("professori")!=-1 or domanda.find("professore")!=-1:
-        parametri.append("professori")
+    if (domanda.find("professori")!=-1 or domanda.find("professore")!=-1) and not (domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1 or domanda.find("informami")!=-1):
+        azione_primaria ="professori"
+    #parametri
+    if azione_primaria!="professori":
+        if domanda.find("professori")!=-1 or domanda.find("professore")!=-1:
+            parametri.append("professori")
+            for materia in lista_materie:
+                if domanda.find(materia) != -1:
+                    parametri.append(materia)
+            for indirizzo in lista_classi[1]:
+                for classe in lista_classi[0]:
+                    if domanda.find(f"{classe} {indirizzo}")!=-1:
+                        parametri.append(f"{classe} {indirizzo}")
+    elif azione_primaria=="professori":
         for materia in lista_materie:
             if domanda.find(materia) != -1:
                 parametri.append(materia)
         for indirizzo in lista_classi[1]:
             for classe in lista_classi[0]:
-                if domanda.find(f"{classe} {indirizzo}")!=-1:
+                if domanda.find(f"{classe} {indirizzo}") != -1:
                     parametri.append(f"{classe} {indirizzo}")
+
+
 
     find=False
     find_materia = False
@@ -62,10 +79,31 @@ def comandi(domanda):
                 else:
                     print("Su cosa vuoi che ti informi")
 
+            #professori
+            if azione_primaria == "professori":
+                if len(parametri)!=0:
+                    for materia in lista_materie:
+                        if parametri[0]==materia:
+                            find = True
+                            if len(parametri) >= 2:
+                                for indirizzo in lista_classi[1]:
+                                    for classe in lista_classi[0]:
+                                        if parametri[1] == f"{classe} {indirizzo}":
+                                            print(f"Mi dispice ma sono nuovo non so niente sui professori della {classe} {indirizzo} che insegnano {materia}")
+                                            find_materia = True
+                            if find_materia==False:
+                                print(f"Mi dispice ma sono nuovo non so niente sui professori di {materia}")
+                    if find==False:
+                        for indirizzo in lista_classi[1]:
+                            for classe in lista_classi[0]:
+                                if parametri[0]==f"{classe} {indirizzo}":
+                                    print(f"Mi dispice ma sono nuovo non so niente sui professori della {classe} {indirizzo}")
+                                    find=True
+                if find==False:
+                    print("Alloara hai chiesto informazzioni sui professori")
             #altrimenti
             else:
                 print("Beh non so cosa dirti")
-
 
     #if Funzioni.memoria(domanda)==-1: Funzioni.impara(input("Non ho mai sentito questa domanda cosa devo riponere?\n ->"))
     #else: print(Funzioni.memoria(domanda))
