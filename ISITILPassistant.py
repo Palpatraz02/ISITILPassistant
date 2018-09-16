@@ -30,11 +30,12 @@ def comandi(domanda):
 
     find=False
     find_materia = False
-    print(parametri)
     if probabile_frase_negativa==False:
         if domanda_si_no==False:
             if azione_sempre_vera=="ciao":
                 print("Ciao!!")
+                
+            #informazioni
             if azione_primaria=="informazioni":
                 if len(parametri)!=0:
                     if parametri[0] == "professori":
@@ -60,6 +61,10 @@ def comandi(domanda):
                             print("Alloara hai chiesto informazzioni sui professori")
                 else:
                     print("Su cosa vuoi che ti informi")
+                    
+            #altrimenti
+            else:
+                print("Beh non so cosa dirti")
 
 
     #if Funzioni.memoria(domanda)==-1: Funzioni.impara(input("Non ho mai sentito questa domanda cosa devo riponere?\n ->"))
