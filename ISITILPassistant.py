@@ -2,11 +2,14 @@ import Funzioni
 
 def comandi(domanda):
     probabile_frase_negativa=False
+    domanda_si_no = False
     azione_sempre_vera=""
     azione_primaria=""
     parametri=[]
     if domanda.find("non")!=-1:
         probabile_frase_negativa=True
+    if domanda.find("vero") != -1:
+        probabile_frase_negativa = True
     if domanda.find("ciao") != -1:
         azione_sempre_vera="ciao"
     if domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1:
@@ -15,15 +18,16 @@ def comandi(domanda):
         parametri.append("professori")
 
     if probabile_frase_negativa==False:
-        if azione_sempre_vera=="ciao":
-            print("Caio!!")
-        if azione_primaria=="informazioni":
-            if len(parametri)!=0:
-                for x in parametri:
-                    if x == "professori":
-                        print("Alloara hai chiesto informazzioni sui professori")
-            else:
-                print("Su cosa vuoi che ti informi")
+        if domanda_si_no==False:
+            if azione_sempre_vera=="ciao":
+                print("Ciao!!")
+            if azione_primaria=="informazioni":
+                if len(parametri)!=0:
+                    for x in parametri:
+                        if x == "professori":
+                            print("Alloara hai chiesto informazzioni sui professori")
+                else:
+                    print("Su cosa vuoi che ti informi")
 
 
     #if Funzioni.memoria(domanda)==-1: Funzioni.impara(input("Non ho mai sentito questa domanda cosa devo riponere?\n ->"))
