@@ -16,7 +16,7 @@ def comandi(domanda):
         probabile_frase_negativa = True
     if domanda.find("ciao") != -1:
         azione_sempre_vera="ciao"
-    if domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1:
+    if domanda.find("informazioni")!=-1 or domanda.find("informazione")!=-1 or domanda.find("informami")!=-1:
         azione_primaria="informazioni"
     if domanda.find("professori")!=-1 or domanda.find("professore")!=-1:
         parametri.append("professori")
@@ -34,7 +34,7 @@ def comandi(domanda):
         if domanda_si_no==False:
             if azione_sempre_vera=="ciao":
                 print("Ciao!!")
-                
+
             #informazioni
             if azione_primaria=="informazioni":
                 if len(parametri)!=0:
@@ -61,7 +61,7 @@ def comandi(domanda):
                             print("Alloara hai chiesto informazzioni sui professori")
                 else:
                     print("Su cosa vuoi che ti informi")
-                    
+
             #altrimenti
             else:
                 print("Beh non so cosa dirti")
